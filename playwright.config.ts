@@ -29,6 +29,9 @@ export default defineConfig({
     {
       name: 'api',
       grep: /@api/,
+      use: {
+        baseURL: process.env.API_URL
+      }
     },
   ],
 
