@@ -4,7 +4,7 @@
   },
   "scripts": {
     "setup": "npm install && npx playwright install",
-    "test": "npx playwright test"
+    "test": "npx playwright test --project=main"
   },
   "dependencies": {
     "dotenv": "^16.3.1"

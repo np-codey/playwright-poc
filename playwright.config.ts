@@ -6,19 +6,29 @@ export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
+  retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: [ ['html'], ['list'] ],
 
   use: {
-    baseURL: 'http://127.0.0.1:3000',
+    baseURL: process.env.BASE_URL,
     trace: 'on-first-retry',
   },
 
   projects: [
     {
       name: 'main',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        headless: false,
+      },
     },
-  ]
+  ],
+
+  webServer: {
+    command: `cd ${ process.env.APP_LOCATION } && yarn dev`,
+    url: 'http://localhost:3000',
+    reuseExistingServer: !process.env.CI,
+    stdout: 'ignore',
+    stderr: 'pipe',
+  },
 });
