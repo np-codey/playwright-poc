@@ -4,7 +4,8 @@
   },
   "scripts": {
     "setup": "npm install && npx playwright install",
-    "test": "npx playwright test --project=main"
+    "test": "npx playwright test --project=main",
+    "test:api": "npx playwright test --project=api"
   },
   "dependencies": {
     "@types/node": "^20.10.0",

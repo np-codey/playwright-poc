@@ -5,11 +5,11 @@ test.describe("API: Users endpoint", () => {
 
   });
 
-  test('Retrieve all users | @critical @A000001', async ({ request }) => {
+  test('Retrieve all users | @api @critical @A000001', async ({ request }) => {
     const response = await request.get('/users');
   });
 
-  test('Retrieve a single user | @critical @C000001', async ({ page }) => {
+  test('Retrieve a single user | @api @critical @C000001', async ({ page }) => {
 
   });
 });

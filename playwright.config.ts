@@ -22,6 +22,13 @@ export default defineConfig({
         headless: false,
       },
     },
+    {
+      name: 'api',
+      grep: /@api/,
+      use: {
+        headless: false,
+      },
+    },
   ],
 
   webServer: {
