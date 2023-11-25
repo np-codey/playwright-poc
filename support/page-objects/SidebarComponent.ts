@@ -1,7 +1,7 @@
 import { type Locator, type Page } from '@playwright/test';
 
 /**
- * The login page for the application.
+ * The shared left-hand navigation sidebar.
  */
 export class SidebarComponent {
   readonly page: Page;

@@ -3,7 +3,7 @@ import { LoginPage } from '@support/page-objects/LoginPage';
 import { SidebarComponent } from '@support/page-objects/SidebarComponent';
 import { Actor } from '@support/actors/Actor';
 
-test.describe("Log in and log out", () => {
+test.describe("Browser: Log in and log out", () => {
   let user: Actor;
   let loginPage: LoginPage;
   let sideBar: SidebarComponent;
