@@ -1,8 +1,9 @@
 {
   "devDependencies": {
-    "@playwright/test": "^1.35.1"
+    "@playwright/test": "^1.40.0"
   },
   "scripts": {
+    "setup": "npm install && npx playwright install",
     "test": "npx playwright test"
   },
   "dependencies": {
