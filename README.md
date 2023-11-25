@@ -16,3 +16,12 @@ Have `npm` installed and available.
 # Running the tests
 
 Execute `npm run test`. The target app server will start running if it isn't already.
+
+# Developing tests
+
+## Tagging
+
+Use tag annotations to specify the priority for each test, and an ID annotation to associate it with a test case in your test management system.
+
+Priority: `@critical`, `@high`, `@medium`, `@low`
+ID: `@C29204`

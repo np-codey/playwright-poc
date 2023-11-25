@@ -1,5 +1,8 @@
 import { type Locator, type Page } from '@playwright/test';
 
+/**
+ * The login page for the application.
+ */
 export class LoginPage {
   readonly page: Page;
   readonly usernameInput: Locator;
@@ -8,12 +11,18 @@ export class LoginPage {
 
   constructor(page: Page) {
     this.page = page;
-    this.usernameInput = page.locator('input#username');
-    this.passwordInput = page.locator('input#password');
-    this.signInButton = page.locator('[data-test="signin-submit"]');
+    this.usernameInput = this.page.locator('input#username');
+    this.passwordInput = this.page.locator('input#password');
+    this.signInButton = this.page.locator('[data-test="signin-submit"]');
   }
 
   async goto() {
     await this.page.goto('/');
+  }
+
+  async logIn(username: string, password: string) {
+    await this.usernameInput.fill(username);
+    await this.passwordInput.fill(password);
+    await this.signInButton.click();
   }
 }
