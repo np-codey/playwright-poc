@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
-import { LoginPage } from '@support/page-objects/LoginPage';
-import { SidebarComponent } from '@support/page-objects/SidebarComponent';
+import { LoginPage } from '@support/page-objects/pages/LoginPage';
+import { SidebarComponent } from '@support/page-objects/components/SidebarComponent';
 import { Actor } from '@support/actors/Actor';
 
 test.describe("Browser: Log in and log out", () => {

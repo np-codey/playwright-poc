@@ -1,23 +1,21 @@
 import { type Locator, type Page } from '@playwright/test';
+import { PageModel } from '@support/page-objects/PageModel';
 
 /**
  * The login page for the application.
  */
-export class LoginPage {
-  readonly page: Page;
+export class LoginPage extends PageModel {
+  readonly path: string;
   readonly usernameInput: Locator;
   readonly passwordInput: Locator;
   readonly signInButton: Locator;
 
   constructor(page: Page) {
-    this.page = page;
+    super(page);
+    this.path = 'signin';
     this.usernameInput = this.page.locator('input#username');
     this.passwordInput = this.page.locator('input#password');
     this.signInButton = this.page.locator('[data-test="signin-submit"]');
-  }
-
-  async goto() {
-    await this.page.goto('/');
   }
 
   async logIn(username: string, password: string) {

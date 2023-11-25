@@ -11,30 +11,31 @@ export default defineConfig({
   reporter: [ ['html'], ['list'] ],
 
   use: {
+    headless: true,
     baseURL: process.env.BASE_URL,
-    trace: 'on-first-retry',
+    trace: 'retain-on-failure',
+    ignoreHTTPSErrors: true,
+    screenshot: {
+      mode: 'only-on-failure',
+      fullPage: true
+    }
   },
 
   projects: [
     {
       name: 'main',
-      use: {
-        headless: false,
-      },
+      grepInvert: /@example/
     },
     {
       name: 'api',
       grep: /@api/,
-      use: {
-        headless: false,
-      },
     },
   ],
 
   webServer: {
     command: `cd ${ process.env.APP_LOCATION } && yarn dev`,
-    url: 'http://localhost:3000',
-    reuseExistingServer: !process.env.CI,
+    url: process.env.BASE_URL,
+    reuseExistingServer: true,
     stdout: 'ignore',
     stderr: 'pipe',
   },
