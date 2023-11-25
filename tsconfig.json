@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@support/*": ["support/*"]
+      },
+      "lib": [ "es2015" ]
+    }
+}

@@ -7,6 +7,7 @@
     "test": "npx playwright test --project=main"
   },
   "dependencies": {
+    "@types/node": "^20.10.0",
     "dotenv": "^16.3.1"
   }
 }
