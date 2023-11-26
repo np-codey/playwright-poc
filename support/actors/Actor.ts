@@ -5,7 +5,7 @@ export class Actor {
     readonly username: string;
     readonly password: string;
 
-    constructor(username: string, password: string) {
+    constructor(username: string = 'test', password: string = 'test') {
         this.username = username;
         this.password = password;
     }
