@@ -23,8 +23,8 @@ export default defineConfig({
 
   projects: [
     {
-      name: 'main',
-      grepInvert: /@example/
+      name: 'browser',
+      grep: /@browser/,
     },
     {
       name: 'api',
