@@ -3,28 +3,28 @@ import { LoginPage } from '@support/page-objects/pages/LoginPage';
 import { SidebarComponent } from '@support/page-objects/components/SidebarComponent';
 import { Actor } from '@support/actors/Actor';
 import { ActorFactory } from '@support/actors/ActorFactory';
+import { MyAccountPage } from '@support/page-objects/pages/MyAccountPage';
 import { standard } from '@data/users.json';
 
-test.describe("Log in and log out", () => {
+test.describe("My account", () => {
   let user: Actor;
   let loginPage: LoginPage;
+  let myAccountPage: MyAccountPage;
   let sideBar: SidebarComponent;
 
   test.beforeEach(async ({ page }) => {
     loginPage = new LoginPage(page);
+    myAccountPage = new MyAccountPage(page);
     sideBar = new SidebarComponent(page);
     user = ActorFactory.getUser(standard);
     await loginPage.goto();
     await loginPage.logIn(user.username, user.password);
   });
 
-  test('Standard user can log in | @browser @critical @C000001', async ({ page }) => {
-    await expect(sideBar.userHandleHeader).toContainText(user.username);
-  });
-
-  test('Standard user can log out | @browser @critical @C000002', async ({ page }) => {
-    await sideBar.logOutButton.click();
-    await expect(loginPage.signInButton).toBeVisible();
+  test('Standard user can change their first name | @browser @high @C000003', async ({ page }) => {
+    await sideBar.myAccountButton.click();
+    await myAccountPage.firstNameInput.fill("Graham");
+    await myAccountPage.userSettingsSubmitButton.click();
+    await expect(sideBar.userNameHeader).toContainText("Graham S");
   });
 });
-
