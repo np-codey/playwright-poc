@@ -3,7 +3,7 @@ import { LoginPage } from '@support/page-objects/pages/LoginPage';
 import { SidebarComponent } from '@support/page-objects/components/SidebarComponent';
 import { Actor } from '@support/actors/Actor';
 
-test.describe("Browser: Log in and log out", () => {
+test.describe("Log in and log out", () => {
   let user: Actor;
   let loginPage: LoginPage;
   let sideBar: SidebarComponent;
@@ -16,11 +16,11 @@ test.describe("Browser: Log in and log out", () => {
     await loginPage.logIn(user.username, user.password);
   });
 
-  test('Standard user can log in | @critical @C000001', async ({ page }) => {
+  test('Standard user can log in | @browser @critical @C000001', async ({ page }) => {
     await expect(sideBar.usernameHeader).toContainText(user.username);
   });
 
-  test('Standard user can log out | @critical @C000002', async ({ page }) => {
+  test('Standard user can log out | @browser @critical @C000002', async ({ page }) => {
     await sideBar.logOutButton.click();
     await expect(loginPage.signInButton).toBeVisible();
   });

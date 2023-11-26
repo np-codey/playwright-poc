@@ -21,14 +21,15 @@ Execute `npm run test`. The target app server will start running if it isn't alr
 
 ## Tagging
 
-Use tag annotations to specify the priority for each test, and an ID annotation to associate it with a test case in your test management system.
+Use tag annotations to specify the type, priority for each test, and an ID annotation to associate it with a test case in your test management system.
 
-Priority: `@critical`, `@high`, `@medium`, `@low`
+Types: `@browser`, `@api`, `@example`
 
-ID: `@C29204`
+Priorities: `@critical`, `@high`, `@medium`, `@low`
+
+IDs: `@C129204`
 
 # TODO
 
 - Document all support classes
-- Refactor Page Objects to use base abstract class
-- Implement ront-end regression testing
+- Implement front-end regression testing
