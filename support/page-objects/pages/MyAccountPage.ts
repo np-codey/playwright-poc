@@ -1,10 +1,8 @@
-
-
 import { type Locator, type Page } from '@playwright/test';
 import { PageModel } from '@support/page-objects/PageModel';
 
 /**
- * The login page for the application.
+ * The My Account page, used to set the user's account details.
  */
 export class MyAccountPage extends PageModel {
   readonly path: string;
